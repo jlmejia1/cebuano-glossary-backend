@@ -8,8 +8,9 @@ from llama_client import define_word
 from zipf_filter import apply_zipf_filter
 from tfidf import compute_tf_idf
 
-# Path to precomputed validated Cebuano corpus
-GLOBAL_VALIDATED_FOLDER = r"C:\Users\bluep\PycharmProjects\backend\validated"  # adjust as needed
+# Path to precomputed validated Cebuano corpus (relative to this file)
+BASE_DIR = os.path.dirname(__file__)
+GLOBAL_VALIDATED_FOLDER = os.path.join(BASE_DIR, "validated")
 
 # Initialize Firebase Admin
 cred = credentials.Certificate("service-account.json")

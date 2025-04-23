@@ -1,0 +1,17 @@
+# Byte-compiled Python files
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# Firebase admin key (keep it secret)
+service-account.json
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store

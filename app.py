@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 import shutil, uuid, os, json
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -20,8 +20,8 @@ db = firestore.client()
 app = FastAPI()
 
 @app.post("/upload_pdf")
-async def upload_pdf(file: UploadFile = File(...)):
-    run_id = str(uuid.uuid4())
+async def upload_pdf(file: UploadFile = File(...),  username: str = Form(None)):
+    run_id = username if username else str(uuid.uuid4())
     tmp_dir = os.path.join("/tmp", run_id)
     os.makedirs(tmp_dir, exist_ok=True)
 

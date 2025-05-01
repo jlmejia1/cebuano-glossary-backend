@@ -96,6 +96,7 @@ async def upload_pdf(file: UploadFile = File(...),  username: str = Form(None)):
         coll_ref = db.collection("glossaries").document(run_id).collection(uploaded_base)
         for word, info in full_glossary[uploaded_base].items():
             coll_ref.add({
+                "pdf_title": uploaded_base,
                 "word":           word,
                 "part_of_speech": info.get("part_of_speech", ""),
                 "pronunciation":  info.get("pronunciation", ""),

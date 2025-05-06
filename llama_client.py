@@ -11,10 +11,14 @@ def define_word(word: str) -> Dict[str, str]:
             "Content-Type": "application/json"
         }
         prompt = (
-            "Return a JSON object with keys:\n"
-            "  part_of_speech, pronunciation, definition, example, translation\n"
-            f"for the Cebuano word '{word}'.\n"
-            "Definition: one concise sentence. Example: one Cebuano sentence.\n"
+            "Using the entry on Binisaya.com (https://www.binisaya.com) as your primary source, "
+            "return a JSON object with these keys for the Cebuano word "
+            f"'{word}':\n"
+            "  • part_of_speech (noun, verb, etc.)\n"
+            "  • pronunciation (Cebuano phonetics)\n"
+            "  • definition (one concise sentence)\n"
+            "  • example (one Cebuano sentence)\n"
+            "  • translation (English equivalent(s))\n"
             "Only output the raw JSON."
         )
         data = {

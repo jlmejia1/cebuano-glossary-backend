@@ -1,7 +1,7 @@
 import requests, json
 from typing import Dict
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "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"
 
 def define_word(word: str) -> Dict[str, str]:
     try:

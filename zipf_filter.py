@@ -7,15 +7,15 @@ from cebdict import dictionary
 
 def get_count_limits(corpus_size):
     """
-    Very strict frequency limits based on Nation (2001) ‘3–5 exposures for initial learning’:
-    - Max count: 3    (only words that recur 2–3 times)
-    - Min Zipf: 3/N   (~3 occurrences in this text)
-    - Max Zipf: 5/N   (~5 occurrences in this text)
+    Calculate stricter frequency limits using:
+    - 4th root scaling (N^(1/4)) for max count
+    - Higher minimum Zipf (0.0002)
+    - Lower maximum Zipf (0.0008)
     """
     return {
-        'max_count': 3,            # keep only words seen ≤3 times
-        'min_zipf': 3 / corpus_size,  # at least ~3 occurrences
-        'max_zipf': 5 / corpus_size   # at most ~5 occurrences
+        'max_count': min(30, int(corpus_size ** (1 / 4))),  # Much stricter than N^(1/3)
+        'min_zipf': 0.0002,  # ~5 occ/25k words
+        'max_zipf': 0.0008  # ~20 occ/25k words
     }
 
 

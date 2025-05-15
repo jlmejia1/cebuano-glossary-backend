@@ -7,7 +7,6 @@ venv/
 .env/
 
 # Firebase admin key (keep it secret)
-service-account.json
 
 # IDE settings
 .vscode/

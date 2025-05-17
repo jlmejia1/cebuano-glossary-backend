@@ -1,7 +1,7 @@
 import requests, json
 from typing import Dict
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "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"
 
 # Expanded fail‑over list of LLaMA models (in descending order of priority)
 MODEL_IDS = [
